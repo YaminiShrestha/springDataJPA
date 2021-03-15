@@ -78,13 +78,14 @@ public class EmployeeService {
         }
     }
 
+    public List<Employee> findByNameLikeEmployee() {
+        return employeeRepository.findByNameLike("A%");
+    }
 
     public List<Employee> findByAgeBetweenEmployee(int age1, int age2) {
         return employeeRepository.findByAgeBetween(age1, age2);
     }
-
-    public List<Employee> findByNameLikeEmployee(String name) {
-        return employeeRepository.findByNameLike(name);
-    }
 }
+
+
 

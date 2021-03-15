@@ -65,12 +65,10 @@ public class EmployeeController {
         return list;
     }
 
-    @GetMapping("/like/{name}")
-    @ResponseBody
-    public List<Employee> findByNameLike(@PathVariable String name) {
+    @GetMapping("/like")
+    public List<Employee> findByNameLike() {
+        return employeeService.findByNameLikeEmployee();
 
-        List<Employee> employeeResponse = (List<Employee>) employeeService.findByNameLikeEmployee(name);
-        return employeeResponse;
     }
 
     @GetMapping("/findByAgeBetween")
@@ -78,10 +76,7 @@ public class EmployeeController {
         return employeeService.findByAgeBetweenEmployee(age1, age2);
     }
 
-    @GetMapping("/findByNameLike")
-    public List<Employee> findBYNameLike(@RequestParam String name) {
-        return employeeService.findByNameLikeEmployee("%a" + name);
-    }
+
 }
 
 
